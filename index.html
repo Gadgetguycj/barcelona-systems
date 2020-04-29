@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Modern Business - Start Bootstrap Template</title>
+  <title>Barcelona Systems</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,48 +41,74 @@
     }
   </script>
 
-<script type="text/javascript">
-  google.charts.load("current", {packages:["corechart"]});
-  google.charts.setOnLoadCallback(drawChart);
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-    ['Method', 'Percentage '],
-      ['Car', 13],
-      ['Bus', 31],
-      ['Metro', 35],
-      ['Bike', 17],
-      ['Train', 4],
-    ]);
+  <script type="text/javascript">
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.setOnLoadCallback(drawMaterial);
 
-    var options = {
-      is3D: true,
-    };
+    function drawMaterial() {
+      var data = google.visualization.arrayToDataTable([
+          ['Item', 'Cost', { role: 'style' }],
+          ['Car', 12.50, '#00FFFF'],            // RGB value
+          ['Bus', 3.00, '#00FFFF'],            // English color name
+          ['Metro', 3.10, '#00FFFF'],
+          ['Bike', 1.40, '#00FFFF'],            // RGB value
+          ['Train', 12.49, '#00FFFF']            // English color name
+        ]);
 
-    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d-1'));
-    chart.draw(data, options);
-  }
-</script>
-<script type="text/javascript">
-  google.charts.load("current", {packages:["corechart"]});
-  google.charts.setOnLoadCallback(drawChart);
-  function drawChart() {
-    var data = google.visualization.arrayToDataTable([
-      ['Method', 'Percentage '],
-      ['Car', 13],
-      ['Bus', 31],
-      ['Metro', 35],
-      ['Bike', 17],
-      ['Train', 4],
-    ]);
+        var materialOptions = {
+          width: 330,
+          height: 300,
+          chart: {
+            title: 'Average Transportation Cost',
+            subtitle: 'Based on 2018 survey data'
+          },
+          hAxis: {
+            title: 'Total Population',
+            minValue: 0,
+          },
+          vAxis: {
+            title: 'Item'
+          },
+          bars: 'vertical'
+        };
+        var materialChart = new google.charts.Bar(document.getElementById('bar_graph'));
+        materialChart.draw(data, materialOptions);
+      }
+  </script>
+  <script type="text/javascript">
+    google.charts.load('current', {packages: ['corechart', 'bar']});
+    google.charts.setOnLoadCallback(drawMaterial);
 
-    var options = {
-      is3D: true,
-    };
+    function drawMaterial() {
+      var data = google.visualization.arrayToDataTable([
+          ['Item', 'Time in minutes', { role: 'style' }],
+          ['Car', 20, '#00FFFF'],            // RGB value
+          ['Bus', 6, '#00FFFF'],            // English color name
+          ['Metro', 4, '#00FFFF'],
+          ['Bike', 32, '#00FFFF'],            // RGB value
+          ['Train', 90, '#00FFFF']            // English color name
+        ]);
 
-    var chart = new google.visualization.PieChart(document.getElementById('piechart_3d-2'));
-    chart.draw(data, options);
-  }
-</script>
+        var materialOptions = {
+          width: 330,
+          height: 300,
+          chart: {
+            title: 'Average Trip Time',
+
+          },
+          hAxis: {
+            title: 'Item',
+            minValue: 0,
+          },
+          vAxis: {
+            title: 'Item'
+          },
+          bars: 'vertical'
+        };
+        var materialChart = new google.charts.Bar(document.getElementById('bar_graph-2'));
+        materialChart.draw(data, materialOptions);
+      }
+  </script>
 
 </head>
 
@@ -168,18 +194,18 @@
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
           <h4 class="card-header">Cost (Per Trip)</h4>
-            <div id="piechart_3d-1" style="width: 400px; height: 300px;"></div>
+            <div id="bar_graph" style="width: 400px; height: 300px;"></div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Source</a>
+            <a href="https://www.itf-oecd.org/sites/default/files/docs/public-transport-governance-greater-barcelona.pdf" class="btn btn-primary">Source</a>
           </div>
         </div>
       </div>
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
           <h4 class="card-header">Average Trip Time</h4>
-            <div id="piechart_3d-2" style="width: 400px; height: 300px;"></div>
+            <div id="bar_graph-2" style="width: 400px; height: 300px;"></div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Source</a>
+            <a href="https://www.itf-oecd.org/sites/default/files/docs/public-transport-governance-greater-barcelona.pdf" class="btn btn-primary">Source</a>
           </div>
         </div>
       </div>
